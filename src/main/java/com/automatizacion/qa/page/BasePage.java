@@ -13,7 +13,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
-import java.util.concurrent.TimeUnit;
 
 public class BasePage {
     protected WebDriver driver;
@@ -21,7 +20,7 @@ public class BasePage {
 
     public BasePage() {
         this.driver = DriverFactory.getDriver();
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(4));
     }
 
     protected void waitForVisibility(By locator) {

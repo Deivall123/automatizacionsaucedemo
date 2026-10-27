@@ -29,28 +29,28 @@ public class PurchaseBackpackTest {
 
         LoginPage loginPage = new LoginPage();
         loginPage.open();
-        pauseForSeconds(5);
+        pauseForSeconds(2);
 
         ProductsPage productsPage = loginPage.loginValidUser(username, password);
-        pauseForSeconds(5);
+        pauseForSeconds(2);
 
         ProductDetailsPage detail = productsPage.openProductByName(productName);
-        pauseForSeconds(5);
+        pauseForSeconds(2);
 
         String title = detail.getProductTitle();
         Assertions.assertEquals(productName, title, "El título del producto no coincide");
 
         detail.addToCart();
-        pauseForSeconds(5);
+        pauseForSeconds(2);
 
         CartPage cartPage = productsPage.openCart();
-        pauseForSeconds(5);
+        pauseForSeconds(2);
 
         boolean itemPresent = cartPage.isProductInCart(productName);
         Assertions.assertTrue(itemPresent, "El producto no está en el carrito");
 
         CheckoutStepOnePage checkoutPage = cartPage.clickCheckout();
-        pauseForSeconds(5);
+        pauseForSeconds(2);
 
         boolean correctPage = checkoutPage.isCheckoutYourInformationVisible();
         Assertions.assertTrue(correctPage, "No se llegó a Checkout: Your Information");
